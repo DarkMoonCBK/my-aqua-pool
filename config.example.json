@@ -1,0 +1,120 @@
+{
+	"threads": 2,
+	"coin": "aqua",
+	"name": "main",
+	"pplns": 9000,
+
+	"proxy": {
+		"enabled": true,
+		"listen": "0.0.0.0:3333",
+		"limitHeadersSize": 1024,
+		"limitBodySize": 256,
+		"behindReverseProxy": false,
+		"blockRefreshInterval": "120ms",
+		"stateUpdateInterval": "3s",
+		"difficulty": 1000000,
+		"hashrateExpiration": "3h",
+
+		"healthCheck": true,
+		"maxFails": 100,
+
+		"stratum": {
+			"enabled": true,
+			"listen": "0.0.0.0:3003",
+			"timeout": "120s",
+			"maxConn": 8192
+		},
+
+		"policy": {
+			"workers": 8,
+			"resetInterval": "60m",
+			"refreshInterval": "1m",
+
+			"banning": {
+				"enabled": false,
+				"ipset": "blacklist",
+				"timeout": 1800,
+				"invalidPercent": 30,
+				"checkThreshold": 30,
+				"malformedLimit": 5
+			},
+			"limits": {
+				"enabled": false,
+				"limit": 30,
+				"grace": "5m",
+				"limitJump": 10
+			}
+		}
+	},
+
+	"api": {
+		"enabled": true,
+		"purgeOnly": false,
+		"purgeInterval": "10m",
+		"listen": "0.0.0.0:8080",
+		"statsCollectInterval": "5s",
+		"hashrateWindow": "30m",
+		"hashrateLargeWindow": "3h",
+		"luckWindow": [64, 128, 256],
+		"payments": 30,
+		"blocks": 50,
+		"poolCharts":"0 */20 * * * *",
+		"poolChartsNum":74,
+		"minerCharts":"0 */20 * * * *",
+		"minerChartsNum":74
+	},
+
+	"upstreamCheckInterval": "5s",
+	"upstream": [
+		{
+			"name": "main",
+			"url": "http://172.19.0.11:8543",
+			"timeout": "10s"
+		},
+		{
+			"name": "backup",
+			"url": "http://172.19.0.11:8543",
+			"timeout": "10s"
+		}
+	],
+
+	"redis": {
+		"endpoint": "172.19.0.12:6379",
+		"poolSize": 10,
+		"database": 3,
+		"password": ""
+	},
+
+	"unlocker": {
+		"enabled": false,
+		"poolFee": 1.0,
+		"poolFeeAddress": "0xdf2e89a38b1bba8e77ba9b9ae012d78b5a5daa07",
+		"donate": true,
+		"depth": 120,
+		"immatureDepth": 20,
+		"keepTxFees": false,
+		"interval": "10m",
+		"daemon": "http://172.19.0.11:8543",
+		"timeout": "10s"
+	},
+
+	"payouts": {
+		"enabled": false,
+		"requirePeers": 2,
+		"interval": "2h",
+		"daemon": "http://172.19.0.11:8543",
+		"timeout": "10s",
+		"address": "0x93f2ca57d6895fe495a6d21c631dbc4d0347cb7b",
+		"gas": "21000",
+		"gasPrice": "10000000000",
+		"autoGas": true,
+		"threshold": 500000000,
+		"bgsave": false,
+		"concurrentTx": 10
+	},
+
+	"newrelicEnabled": false,
+	"newrelicName": "MyAquachainProxy",
+	"newrelicKey": "SECRET_KEY",
+	"newrelicVerbose": false
+}
