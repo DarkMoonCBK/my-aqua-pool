@@ -1,14 +1,14 @@
 <div class="container">
   {{high-charts mode=chartMode chartOptions=chartPayment content=chartData}}
   {{#if model.payments}}
-  <h4>Your Latest Payouts</h4>
+  <h4>支付记录</h4>
   <div class="table-responsive">
     <table class="table table-condensed table-striped">
       <thead>
         <tr>
-          <th>Time</th>
+          <th>时间</th>
           <th>Tx ID</th>
-          <th>Amount</th>
+          <th>数量</th>
         </tr>
       </thead>
       <tbody>
@@ -25,6 +25,6 @@
     </table>
   </div>
   {{else}}
-  <h3>No payouts yet</h3>
+  <h3>没有支付记录</h3>
   {{/if}}
 </div>

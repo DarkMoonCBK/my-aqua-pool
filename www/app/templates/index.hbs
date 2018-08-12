@@ -3,26 +3,26 @@
     <div class="row">
       <div class="col-md-5">
         <h1 style="font-size: 24px">
-          <strong>Open Aquachain Pool</strong>
+          <strong>兄弟AQUA Mining Pool</strong>
         </h1>
-        <strong>Min. payout threshold: {{config.PayoutThreshold}}</strong><br/>
-        <span class="label label-success">PROP</span> Stable and profitable pool with regular payouts.<br/>
-        <span class="label label-success">PPLNS</span> Real time PPLNS payout scheme.<br/>
-        <span class="label label-success">24/365</span> Unstoppable server infrastructure with 24/365 customer support.<br/>
+        <strong>每2小时最小支付: {{config.PayoutThreshold}}</strong><br/>
+        <span class="label label-success">PROP</span> 稳定,高效,安全.QQ群:790490258.<br/>
+        <span class="label label-success">PPLNS</span> 实时PPLNS支付方案.<br/>
+        <span class="label label-success">24/365</span> 24小时*365天 全程服务.<br/>
       </div>
       <div class="col-md-3 stats">
-        <div><i class="fa fa-users"></i> Miners Online: <span id="poolHashrate">{{format-number stats.model.minersTotal}}</span></div>
-        <div><i class="fa fa-tachometer"></i> Pool Hash Rate: <span id="poolHashrate">{{format-hashrate stats.model.hashrate}}</span></div>
+        <div><i class="fa fa-users"></i> 在线矿工: <span id="poolHashrate">{{format-number stats.model.minersTotal}}</span></div>
+        <div><i class="fa fa-tachometer"></i> 矿池算力: <span id="poolHashrate">{{format-hashrate stats.model.hashrate}}</span></div>
         <div><i class="fa fa-money"></i> Pool Fee: <span id="poolFee" class="label label-success">{{config.PoolFee}}</span></div>
         {{#if stats.model.stats.lastBlockFound}}
-        <div><i class="fa fa-clock-o"></i> Last Block Found: <span>{{format-relative (seconds-to-ms stats.model.stats.lastBlockFound)}}</span></div>
+        <div><i class="fa fa-clock-o"></i> 最新撸到的块: <span>{{format-relative (seconds-to-ms stats.model.stats.lastBlockFound)}}</span></div>
         {{/if}}
       </div>
       <div class="col-md-4 stats">
-        <div><i class="fa fa-unlock-alt"></i> Network Difficulty: <span>{{with-metric-prefix stats.difficulty}}</span></div>
-        <div><i class="fa fa-tachometer"></i> Network Hash Rate: <span>{{format-hashrate stats.hashrate}}</span></div>
-        <div><i class="fa fa-bars"></i> Blockchain Height: <span>{{format-number stats.height}}</span></div>
-        <div><i class="fa fa-clock-o"></i> Current Round Variance: <span>{{format-number stats.roundVariance style='percent'}}</span></div>
+        <div><i class="fa fa-unlock-alt"></i> 全网难度: <span>{{with-metric-prefix stats.difficulty}}</span></div>
+        <div><i class="fa fa-tachometer"></i> 全网算力: <span>{{format-hashrate stats.hashrate}}</span></div>
+        <div><i class="fa fa-bars"></i> 全网高度: <span>{{format-number stats.height}}</span></div>
+        <div><i class="fa fa-clock-o"></i> 幸运度: <span>{{format-number stats.roundVariance style='percent'}}</span></div>
       </div>
     </div>
   </div>
@@ -33,21 +33,21 @@
   {{high-charts mode=chartMode chartOptions=chartOptions content=chartData}}
   </div>
   <div class="stats">
-    <h4>Your Stats &amp; Payment History</h4>
+    <h4>矿工状态 &amp; 支付记录</h4>
     <div class="input-group">
-      {{input value=cachedLogin class="form-control" placeholder="Enter Your Aquachain Address"}}
+      {{input value=cachedLogin class="form-control" placeholder="输入你AQUA钱包地址"}}
       <span class="input-group-btn">
         <button class="btn btn-primary" type="button" {{action 'lookup' cachedLogin}}>
-          <span style="display: inline;"><i class="fa fa-search"></i> Lookup</span>
+          <span style="display: inline;"><i class="fa fa-search"></i> 查看</span>
         </button>
       </span>
     </div>
   </div>
   <div>
     <hr/>
-    <p>Get latest <a href="https://github.com/aquanetwork/aquachain/releases/">aquaminer.exe</a></p>
+    <p>下载最新 <a href="https://bitbucket.org/cryptogone/aquacppminer/downloads">aquacpppminer</a></p>
     <h4 class="note note-info text-center">
-      aquaminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/&lt;address&gt;/&lt;worker&gt;
+      aquacpppminer.exe -F {{config.HttpHost}}:{{config.HttpPort}}/&lt;address&gt;/&lt;worker&gt;
     </h4>
   </div>
   <div>
@@ -55,11 +55,11 @@
     <h4 class="note note-info text-center">
       <b>Support:</b>
       <br><br>
-      Mail:&nbsp;&nbsp;<a href="mailto:chainkorea@naver.com">chainkorea@naver.com</a>
+      Mail:&nbsp;&nbsp;<a href="mailto:pool@dapool.co">pool@dapool.co</a>
       <br>
-      Discord:&nbsp;&nbsp;join <a href="https://discord.gg/h6vsEuw" target="_new">Join the Discord Chatroom!</a>
+      Discord:&nbsp;&nbsp;join <a href="https://discord.gg/HcPRfQ6" target="_new">Join the Discord Chatroom!</a>
       <br>
-      <font size="-1">(direct Message to the Pool Operator: @Airking)</font>
+      <font size="-1">(direct Message to the Pool Operator: @DarkMoon)</font>
     </h4>
   </div>
 </div>

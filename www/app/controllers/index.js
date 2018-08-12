@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
                         }
                     },
                     title: {
-                        text: "Our pool's hashrate"
+                        text: "本池算力"
                     },
                     xAxis: {
                         labels: {
